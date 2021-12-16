@@ -75,7 +75,7 @@ if __name__ == '__main__':
     print("Let's start the game!")
     while not board.is_board_full():
         board.print_board()
-        board.changeActivePlayer()
+        board.changeActivePlayer() 
         try:
             cell = int(input("Make your move " + board.getActivePlayerName() + "! Where do you want to make your sign [1-9]: "))
         except ValueError:
