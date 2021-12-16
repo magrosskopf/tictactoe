@@ -21,7 +21,7 @@ class Board:
             2: "O"
         }
         return signs[sign]
-   
+
     def checkWin(self):
         if self.state[0] == self.state[1] == self.state[2] != 0:
             return True
@@ -40,13 +40,19 @@ class Board:
         elif self.state[2] == self.state[4] == self.state[6] != 0:
             return True
         else:
-            print("Next Player ")
+            print("Next Player")
             return False
 
     def print_board(self):
-        print(self.sign_to_printable(self.state[0]) + "|" + self.sign_to_printable(self.state[1]) + "|" + self.sign_to_printable(self.state[ 2]))
-        print(self.sign_to_printable(self.state[3]) + "|" + self.sign_to_printable(self.state[4]) + "|" + self.sign_to_printable(self.state[ 5]))
-        print(self.sign_to_printable(self.state[6]) + "|" + self.sign_to_printable(self.state[7]) + "|" + self.sign_to_printable(self.state[ 8]))
+        print(self.sign_to_printable(self.state[0]) + "|" 
+            + self.sign_to_printable(self.state[1]) + "|" 
+            + self.sign_to_printable(self.state[ 2]))
+        print(self.sign_to_printable(self.state[3]) + "|" 
+            + self.sign_to_printable(self.state[4]) + "|" 
+            + self.sign_to_printable(self.state[ 5]))
+        print(self.sign_to_printable(self.state[6]) + "|" 
+            + self.sign_to_printable(self.state[7]) + "|" 
+            + self.sign_to_printable(self.state[ 8]))
             
     def makeMove(self, cell):
         if self.is_valid_turn(cell):
