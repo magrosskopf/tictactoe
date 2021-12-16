@@ -1,7 +1,7 @@
 
 class Board:
     def __init__(self):
-        self.state = [0,0,0,0,0,0,0,0,0]
+        self.state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.players = []
         self.activePlayer = ""
     def is_board_full(self):
