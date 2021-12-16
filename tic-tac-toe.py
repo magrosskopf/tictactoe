@@ -18,7 +18,7 @@ class Board:
         signs = {
             0: " ",
             1: "X",
-            2: "O"
+            2: "O" 
         }
         return signs[sign]
     def print_board(self):
