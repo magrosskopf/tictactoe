@@ -22,7 +22,7 @@ class Board:
         }
         return signs[sign]
 
-    def checkWin(self):
+    def check_win(self):
         if self.state[0] == self.state[1] == self.state[2] != 0:
             return True
         elif self.state[3] == self.state[4] == self.state[5] != 0:
@@ -54,7 +54,7 @@ class Board:
             + self.sign_to_printable(self.state[7]) + "|"
             + self.sign_to_printable(self.state[ 8]))
         
-    def makeMove(self, cell):
+    def make_move(self, cell):
         if self.is_valid_turn(cell):
             self.state[cell] = self.active_player.symbol
             return True
@@ -64,7 +64,7 @@ class Board:
             return True
         else:
             return False
-    def getActivePlayerName(self):
+    def get_active_playername(self):
         return self.active_player.name
 class Player:
     def __init__(self, symbol):
@@ -75,15 +75,15 @@ if __name__ == '__main__':
     board = Board()
     SYMBOL_X = 1
     SYMBOL_O = 2
-    playerOne = Player(SYMBOL_X)
-    playerTwo = Player(SYMBOL_O)
-    board.players = [playerOne, playerTwo]
+    player_one = Player(SYMBOL_X)
+    player_two = Player(SYMBOL_O)
+    board.players = [player_one, player_two]
     print("Let's start the game!")
     while not board.is_board_full():
         board.print_board()
         board.change_active_player()
         try:
-            cell = int(input("Make your move " + board.getActivePlayerName() + 
+            cell = int(input("Make your move " + board.get_active_playername() + 
             "! Where do you want to make your sign [1-9]: "))
         except ValueError:
             continue
@@ -91,9 +91,9 @@ if __name__ == '__main__':
         if cell < 0 or cell > 8:
             print("Please enter a number between 1 and 9: ")
             continue
-        if not board.makeMove(cell):
+        if not board.make_move(cell):
             print("ilegal move, choose a number between 1 and 9: ")
             continue
-        if board.checkWin():
-            print("You wonn, " + board.getActivePlayerName() + "! GW.")
+        if board.check_win():
+            print("You wonn, " + board.get_active_playername() + "! GW.")
             break
